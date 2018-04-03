@@ -8,7 +8,7 @@ using System;
 
 public class God : MonoBehaviour {
 	//Sound Button
-	int Max_Buttons = 21;
+	float Max_Buttons = 21;
 	int Starting_Sound;
 	AudioSource[] Sound_Sources;
 	//Bottom Button
@@ -16,12 +16,16 @@ public class God : MonoBehaviour {
 	public GameObject Button_Next;
 
 	void Start () {
-		if (PlayerPrefs.GetInt("Page_Number") == 0) {
-			PlayerPrefs.SetInt("Page_Number", 1);
-		}
-		Starting_Sound = PlayerPrefs.GetInt("Page_Number") * 21 - 20; //Adjust with playerprefs in future!!!!
 		var Sounds = Resources.LoadAll("Sound Bytes", typeof(AudioClip)).ToArray();
-		Sound_Sources = new AudioSource[Max_Buttons + 1];
+
+		if (PlayerPrefs.GetInt("Page_Number") <= 0 || PlayerPrefs.GetInt("Page_Number") == null) {
+			PlayerPrefs.SetInt("Page_Number", 1);
+		}else if (PlayerPrefs.GetInt("Page_Number") > Mathf.CeilToInt(Sounds.Length / Max_Buttons)) {
+			PlayerPrefs.SetInt("Page_Number", Mathf.CeilToInt(Sounds.Length / Max_Buttons));
+		}
+
+		Starting_Sound = PlayerPrefs.GetInt("Page_Number") * 21 - 20; //Adjust with playerprefs in future!!!!
+		Sound_Sources = new AudioSource[int.Parse(Max_Buttons.ToString()) + 1];
 
 		for (int i = 1; i <= Max_Buttons; i++) {
 			if (Sounds.Length <= Starting_Sound + i - 1) {
