@@ -253,3 +253,9 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 59.872486 seconds.
+  path: Assets/God.unity
+  artifactKey: Guid(81251884ca9a5b94fba8d0f6e21b8f2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/God.unity using Guid(81251884ca9a5b94fba8d0f6e21b8f2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27c6e5a2f19c0b1186021bc306f1db5e') in 0.003633 seconds 
